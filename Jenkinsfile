@@ -2,25 +2,29 @@ pipeline {
     agent any
 
     stages {
-        stage ('Compile Stage'){
+        stage ('build'){
             steps {
-                withMaven(maven: 'maven_3_8_1') {
-                    sh 'mvn clean compile'
-                }
+                echo 'building the application'
+                // npm install  // nm build
+//                 withMaven(maven: 'maven_3_8_1') {
+//                     sh 'mvn clean compile'
+//                 }
             }
         }
-        stage ('Testing Stage'){
+        stage ('test'){
             steps {
-                withMaven(maven: 'maven_3_8_1') {
-                    sh 'mvn test'
-                }
+                echo 'testing the application'
+//                 withMaven(maven: 'maven_3_8_1') {
+//                     sh 'mvn test'
+//                 }
             }
         }
-        stage ('Deployment Stage'){
+        stage ('deploy'){
             steps {
-                withMaven(maven: 'maven_3_8_1') {
-                    sh 'mvn deploy'
-                }
+                echo 'deploying the application'
+//                 withMaven(maven: 'maven_3_8_1') {
+//                     sh 'mvn deploy'
+//                 }
             }
         }
     }
